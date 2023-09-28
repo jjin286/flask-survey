@@ -3,6 +3,9 @@
 
   <h1>{{ question.prompt }}</h1>
   <p>{{ error }}</p>
+  {% for msg in get_flashed_messages() %}
+    <p>{{ msg }}</p>
+  {% endfor %}
 
   <form action="/answer" method="POST">
 

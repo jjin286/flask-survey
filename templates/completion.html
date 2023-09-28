@@ -6,7 +6,7 @@
 
   {% for index in range(question_count) %}
 
-    <p><b>{{ questions[index].prompt }}</b> {{ complete_responses[index] }}</p>
+    <p><b>{{ questions[index].prompt }}</b> {{ session['responses'][index] }}</p>
 
   {% endfor %}
 
