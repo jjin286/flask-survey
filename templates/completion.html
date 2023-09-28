@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block title %}Complete Survey{% endblock %}
 
+{% block header%}
   <h1>Thanks for completing this survey!</h1>
+{% endblock %}
+
+{% block content %}
 
   {% for index in range(question_count) %}
 
-    <p><b>{{ questions[index].prompt }}</b> {{ session['responses'][index] }}</p>
+    <p><b>{{ questions[index].prompt }}</b> {{ session[survey_code][index] }}</p>
 
   {% endfor %}
 

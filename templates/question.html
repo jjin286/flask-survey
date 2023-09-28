@@ -1,4 +1,11 @@
 {% extends 'base.html' %}
+
+{% block title %}Question {{ session['responses'] | count }}{% endblock %}
+
+{% block header%}
+  <h1>Question {{ session[survey_code] | count }}</h1>
+{% endblock %}
+
 {% block content %}
 
   <h1>{{ question.prompt }}</h1>
@@ -7,7 +14,7 @@
     <p>{{ msg }}</p>
   {% endfor %}
 
-  <form action="/answer" method="POST">
+  <form action="/{{ survey_code }}/answer" method="POST">
 
       <!-- you should have one item like this for every choice -->
       {% for choice in question.choices %}
