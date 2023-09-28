@@ -4,4 +4,10 @@
 
   <h1>Thanks for completing this survey!</h1>
 
+  {% for index in range(question_count) %}
+
+    <p><b>{{ questions[index].prompt }}</b> {{ complete_responses[index] }}</p>
+
+  {% endfor %}
+
 {% endblock %}

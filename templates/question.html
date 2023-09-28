@@ -2,17 +2,20 @@
 {% block content %}
 
   <h1>{{ question.prompt }}</h1>
+  <p>{{ error }}</p>
 
   <form action="/answer" method="POST">
 
       <!-- you should have one item like this for every choice -->
-      <p>
-        <input
-            type="radio"
-            name="answer"
-            value="value-goes-here">
-        choice-goes-here
-      </p>
+      {% for choice in question.choices %}
+        <p>
+          <input
+              type="radio"
+              name="answer"
+              value="{{ choice }}">
+          {{ choice }}
+        </p>
+      {% endfor %}
 
     <button>Continue</button>
   </form>
