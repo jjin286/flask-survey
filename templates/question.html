@@ -14,7 +14,7 @@
     <p>{{ msg }}</p>
   {% endfor %}
 
-  <form action="/{{ survey_code }}/answer" method="POST">
+  <form action="/answer" method="POST">
 
       <!-- you should have one item like this for every choice -->
       {% for choice in question.choices %}
@@ -26,6 +26,9 @@
           {{ choice }}
         </p>
       {% endfor %}
+      {% if question.allow_text %}
+        <textarea name="comment" cols="30" rows="10"></textarea>
+      {% endif%}
 
     <button>Continue</button>
   </form>

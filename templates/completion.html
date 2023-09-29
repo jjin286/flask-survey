@@ -9,8 +9,14 @@
 {% block content %}
 
   {% for index in range(question_count) %}
+    {% if session[survey_code][index] is iterable and session[survey_code][index] is not string %}
+      <p><b>{{ questions[index].prompt }}</b>
+        {{ session[survey_code][index][0] }}, {{ session[survey_code][index][1] }}</p>
+    {% else %}
+      <p><b>{{ questions[index].prompt }}</b> {{ session[survey_code][index] }}</p>
 
-    <p><b>{{ questions[index].prompt }}</b> {{ session[survey_code][index] }}</p>
+    {% endif %}
+
 
   {% endfor %}
 
